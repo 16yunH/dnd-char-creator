@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: 'Noto Serif SC', serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 一些DND风味的基础组件类 */
+@layer components {
+  .btn-dnd {
+    @apply bg-dnd-red hover:bg-dnd-red-dark text-dnd-parchment font-cinzel font-bold border-2 border-dnd-gold rounded shadow-md transition-all uppercase tracking-wide;
+  }
+  .panel-dnd {
+    @apply bg-parchment-pattern text-dnd-dark border-4 border-double border-dnd-gold rounded shadow-[0_0_15px_rgba(0,0,0,0.5)];
+  }
+  .input-dnd {
+    @apply bg-white/70 border border-dnd-gold-dark rounded focus:ring-2 focus:ring-dnd-red focus:outline-none text-dnd-dark font-serif;
+  }
+}
+
+/* 定制滚动条，木质或暗角风格 */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #2a2520; 
+}
+::-webkit-scrollbar-thumb {
+  background: #5c1313; 
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #822424; 
+}
