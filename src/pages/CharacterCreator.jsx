@@ -186,32 +186,36 @@ export default function CharacterCreator() {
         <div className="space-y-6">
           <h2 className="text-xl font-bold font-cinzel border-b border-gray-400 pb-2 text-dnd-red-dark">基本信息 (Character Info)</h2>
           
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-            <div className="col-span-2 md:col-span-1">
-              <label className="block text-sm font-bold mb-1">角色名</label>
-              <input value={basic.name} onChange={e => setBasic({...basic, name: e.target.value})} className="input-dnd p-2 w-full" placeholder="输入名字..." />
+          <div className="space-y-4">
+            <div className="grid grid-cols-5 gap-4">
+              <div className="col-span-3">
+                <label className="block text-sm font-bold mb-1">角色名</label>
+                <input value={basic.name} onChange={e => setBasic({...basic, name: e.target.value})} className="input-dnd p-2 w-full" placeholder="输入名字..." />
+              </div>
+              <div className="col-span-2">
+                <label className="block text-sm font-bold mb-1">种族</label>
+                <select value={basic.race} onChange={e => setBasic({...basic, race: e.target.value})} className="input-dnd p-2 w-full">
+                  {Object.keys(RACES).map(r => <option key={r} value={r}>{r}</option>)}
+                </select>
+              </div>
             </div>
-            <div>
-              <label className="block text-sm font-bold mb-1">种族</label>
-              <select value={basic.race} onChange={e => setBasic({...basic, race: e.target.value})} className="input-dnd p-2 w-full">
-                {Object.keys(RACES).map(r => <option key={r} value={r}>{r}</option>)}
-              </select>
-            </div>
-            <div>
-              <label className="block text-sm font-bold mb-1">职业</label>
-              <select value={basic.charClass} onChange={e => setBasic({...basic, charClass: e.target.value})} className="input-dnd p-2 w-full">
-                {Object.keys(CLASSES).map(c => <option key={c} value={c}>{c}</option>)}
-              </select>
-            </div>
-            <div>
-              <label className="block text-sm font-bold mb-1">背景</label>
-              <select value={basic.background} onChange={e => setBasic({...basic, background: e.target.value})} className="input-dnd p-2 w-full">
-                {BACKGROUNDS.map(bg => <option key={bg} value={bg}>{bg}</option>)}
-              </select>
-            </div>
-            <div>
-              <label className="block text-sm font-bold mb-1">等级 (1-20)</label>
-              <input type="number" min="1" max="20" value={basic.level} onChange={e => setBasic({...basic, level: parseInt(e.target.value)||1})} className="input-dnd p-2 w-full" />
+            <div className="grid grid-cols-3 gap-4">
+              <div>
+                <label className="block text-sm font-bold mb-1">职业</label>
+                <select value={basic.charClass} onChange={e => setBasic({...basic, charClass: e.target.value})} className="input-dnd p-2 w-full">
+                  {Object.keys(CLASSES).map(c => <option key={c} value={c}>{c}</option>)}
+                </select>
+              </div>
+              <div>
+                <label className="block text-sm font-bold mb-1">背景</label>
+                <select value={basic.background} onChange={e => setBasic({...basic, background: e.target.value})} className="input-dnd p-2 w-full">
+                  {BACKGROUNDS.map(bg => <option key={bg} value={bg}>{bg}</option>)}
+                </select>
+              </div>
+              <div>
+                <label className="block text-sm font-bold mb-1">等级 (1-20)</label>
+                <input type="number" min="1" max="20" value={basic.level} onChange={e => setBasic({...basic, level: parseInt(e.target.value)||1})} className="input-dnd p-2 w-full" />
+              </div>
             </div>
           </div>
 
